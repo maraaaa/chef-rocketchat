@@ -1,6 +1,7 @@
-#
 # Cookbook Name:: rocketchat
-# Recipe:: default
+# Recipe:: user
+#
+# Manage user and group for rocketchat process.
 #
 # Copyright 2016, Greg Fitzgerald
 # Copyright 2017, JJ Asghar
@@ -18,17 +19,13 @@
 # limitations under the License.
 #
 
-packages = node['rocketchat']['dependencies']
-package packages do
-  action :install
-end
+group node['rocketchat']['group']
 
-%w(
-  user
-  mongodb
-  nodejs
-  install
-  service
-).each do |recipe|
-  include_recipe "#{cookbook_name}::#{recipe}"
+user node['rocketchat']['user'] do
+  system true
+  comment 'rocketchat Server'
+  home node['rocketchat']['install_dir']
+  gid node['rocketchat']['group']
+  shell '/bin/false'
+  action :create
 end

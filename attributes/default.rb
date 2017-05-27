@@ -24,7 +24,18 @@ default['rocketchat']['install_dir'] = '/srv/rocketchat'
 default['rocketchat']['url'] = 'https://rocket.chat/releases/0.53.0/download'
 default['rocketchat']['checksum'] = '095c9476806186cb7ecd94490f43fe1496806b14edc8f4a3739840a895ee18a1'
 
-default['rocketchat']['dependencies'] = %w(netcat graphicsmagick curl)
+default['rocketchat']['node_version'] = '7.7.3'
+
+case node['platform']
+when 'debian'
+  default['rocketchat']['dependencies'] = %w(netcat graphicsmagick curl build-essential g++)
+when 'ubuntu'
+  default['rocketchat']['dependencies'] = %w(graphicsmagick curl build-essential g++)
+when 'redhat', 'centos', 'fedora'
+  default['rocketchat']['dependencies'] = %w(GraphicsMagick curl)
+else
+  default['rocketchat']['dependencies'] = %w(graphicsmagick curl)
+end
 
 # runit service settings
 default['rocketchat']['root_url'] = "http://#{node['fqdn']}:3000"

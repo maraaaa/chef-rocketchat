@@ -1,9 +1,8 @@
 #
-# Cookbook Name:: rocketchat
-# Recipe:: default
+# Cookbook:: chef-rocketchat
+# Recipe:: mongodb
 #
-# Copyright 2016, Greg Fitzgerald
-# Copyright 2017, JJ Asghar
+# setup mongodb for rocketchat
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,17 +17,8 @@
 # limitations under the License.
 #
 
-packages = node['rocketchat']['dependencies']
-package packages do
-  action :install
-end
+node.override['mongodb']['config']['smallfiles'] = true
+node.override['mongodb']['config']['rest'] = true
+node.override['mongodb']['config']['bind_ip'] = 'localhost'
 
-%w(
-  user
-  mongodb
-  nodejs
-  install
-  service
-).each do |recipe|
-  include_recipe "#{cookbook_name}::#{recipe}"
-end
+include_recipe 'sc-mongodb::default'
