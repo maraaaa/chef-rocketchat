@@ -22,8 +22,6 @@ env:
   matrix:
   - INSTANCE=ubuntu-1404
   - INSTANCE=ubuntu-1604
-  - INSTANCE=debian-7
-  - INSTANCE=debian-8
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
@@ -31,6 +29,7 @@ before_script:
   - /opt/chefdk/embedded/bin/chef --version
   - /opt/chefdk/embedded/bin/cookstyle --version
   - /opt/chefdk/embedded/bin/foodcritic --version
+  - /opt/chefdk/embedded/bin/chef gem install stove
 
 script: KITCHEN_LOCAL_YAML=.kitchen.dokken.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
 

@@ -10,6 +10,8 @@ source_url        'https://github.com/RocketChat/chef-rocketchat/'
 
 recipe 'rocketchat', 'Installs and configures Rocket.Chat'
 
+chef_version      '12.20.3'
+
 %w(mongodb runit).each do |dep|
   depends dep
 end
