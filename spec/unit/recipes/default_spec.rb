@@ -11,7 +11,7 @@ describe 'rocketchat::default' do
       expect(chef_run).to create_directory('/srv/rocketchat').with(
         user: 'rocketchat',
         group: 'rocketchat',
-        mode: 0755,
+        mode: 0o755,
         recursive: true
       )
     end

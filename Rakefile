@@ -43,4 +43,4 @@ desc 'Run all tests on Travis'
 task travis: %w(style spec)
 
 # Default
-task default: ['style', 'spec']
+task default: %w(style spec)

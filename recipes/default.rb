@@ -43,10 +43,10 @@ node.override['mongodb']['config']['bind_ip'] = 'localhost'
 include_recipe 'mongodb::10gen_repo'
 include_recipe 'mongodb::default'
 
-bash "install node" do
-  user "root"
-  cwd "/tmp"
-  creates "maybe"
+bash 'install node' do
+  user 'root'
+  cwd '/tmp'
+  creates 'maybe'
   code <<-EOH
   STATUS=0
     curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -   || STATUS=1
@@ -93,7 +93,7 @@ directory node['rocketchat']['install_dir'] do
   action :create
 end
 
-package ['build-essential','g++'] do
+package ['build-essential', 'g++'] do
   action :install
 end
 
@@ -106,11 +106,11 @@ execute 'npm install' do
   cwd "#{node['rocketchat']['install_dir']}/programs/server"
 end
 
-template "/srv/rocketchat/.node_version.txt" do
-  source "node_version.erb"
-  owner "rocketchat"
-  group "rocketchat"
-  mode "0644"
+template '/srv/rocketchat/.node_version.txt' do
+  source 'node_version.erb'
+  owner 'rocketchat'
+  group 'rocketchat'
+  mode '0644'
 end
 
 include_recipe 'runit'
