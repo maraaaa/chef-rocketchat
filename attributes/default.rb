@@ -24,7 +24,7 @@ default['rocketchat']['install_dir'] = '/srv/rocketchat'
 default['rocketchat']['url'] = 'https://rocket.chat/releases/0.53.0/download'
 default['rocketchat']['checksum'] = '095c9476806186cb7ecd94490f43fe1496806b14edc8f4a3739840a895ee18a1'
 
-default['rocketchat']['dependencies'] = %w(graphicsmagick curl)
+default['rocketchat']['dependencies'] = %w(netcat graphicsmagick curl)
 
 # runit service settings
 default['rocketchat']['root_url'] = "http://#{node['fqdn']}:3000"
