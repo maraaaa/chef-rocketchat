@@ -6,7 +6,6 @@ describe 'rocketchat::default_attributes' do
     runner.converge('rocketchat::default')
   end
 
-
   describe 'on and ubuntu 16.04 system' do
     it 'sets the default user & group' do
       expect(chef_run.node['rocketchat']['user']).to eq('rocketchat')
