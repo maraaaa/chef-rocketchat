@@ -60,21 +60,21 @@ remote_file "#{Chef::Config['file_cache_path']}/#{tar_name}" do
   checksum node['rocketchat']['checksum']
   owner node['rocketchat']['user']
   group node['rocketchat']['group']
-  mode 0644
+  mode '0644'
   action :create_if_missing
 end
 
 directory node['rocketchat']['install_dir'] do
   owner node['rocketchat']['user']
   group node['rocketchat']['group']
-  mode 0755
+  mode '0755'
   action :create
 end
 
 directory "#{Chef::Config['file_cache_path']}/rocketchat" do
   owner node['rocketchat']['user']
   group node['rocketchat']['group']
-  mode 0755
+  mode '0755'
   action :create
 end
 
@@ -89,7 +89,7 @@ directory node['rocketchat']['install_dir'] do
   recursive true
   owner node['rocketchat']['user']
   group node['rocketchat']['group']
-  mode 0755
+  mode '0755'
   action :create
 end
 
