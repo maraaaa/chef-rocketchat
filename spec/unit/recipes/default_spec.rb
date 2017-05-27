@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'rocketchat::default' do
   context 'install rocketchat defaults' do
     let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
+      runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '14.04')
       runner.converge(described_recipe)
     end
 
