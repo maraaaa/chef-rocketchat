@@ -22,6 +22,8 @@ env:
   matrix:
   - INSTANCE=ubuntu-1404
   - INSTANCE=ubuntu-1604
+  - INSTANCE=debian-7
+  - INSTANCE=debian-8
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
