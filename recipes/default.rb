@@ -49,7 +49,7 @@ bash 'install node' do
   creates 'maybe'
   code <<-EOH
   STATUS=0
-    curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -   || STATUS=1
+    curl -sL https://deb.nodesource.com/setup_7.x | bash -   || STATUS=1
     apt-get install -y nodejs   || STATUS=1
   exit $STATUS
   EOH
