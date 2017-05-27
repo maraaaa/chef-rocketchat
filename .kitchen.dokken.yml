@@ -40,9 +40,9 @@ platforms:
       intermediate_instructions:
         - RUN /usr/bin/apt-get update  --fix-missing
         - RUN /usr/bin/apt-get install lsb-release procps -y
-  - name: centos-7.2
+  - name: centos-7
     driver:
-      image: centos:72
+      image: centos:7
       pid_one_command: /sbin/init
 
 

@@ -20,7 +20,7 @@ describe 'rocketchat::nodejs' do
     end
 
     it 'installs nodejs v7.7.3' do
-      i# expect(chef_run).to nvm_install('node 7.7.3')
+      expect(chef_run).to nvm_install('node 7.7.3')
     end
   end
 end

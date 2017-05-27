@@ -8,6 +8,7 @@ nvm_install "node #{node['rocketchat']['node_version']}" do
   version node['rocketchat']['node_version']
   user node['rocketchat']['user']
   group node['rocketchat']['group']
+  user_home node['rocketchat']['install_dir']
   from_source false
   alias_as_default true
   action :create

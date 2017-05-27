@@ -23,6 +23,7 @@ group node['rocketchat']['group']
 
 user node['rocketchat']['user'] do
   system true
+  manage_home true
   comment 'rocketchat Server'
   home node['rocketchat']['install_dir']
   gid node['rocketchat']['group']

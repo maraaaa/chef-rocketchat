@@ -28,13 +28,13 @@ default['rocketchat']['node_version'] = '7.7.3'
 
 case node['platform']
 when 'debian'
-  default['rocketchat']['dependencies'] = %w(netcat graphicsmagick curl build-essential g++)
+  default['rocketchat']['dependencies'] = %w(git netcat graphicsmagick curl build-essential g++)
 when 'ubuntu'
-  default['rocketchat']['dependencies'] = %w(graphicsmagick curl build-essential g++)
+  default['rocketchat']['dependencies'] = %w(git graphicsmagick curl build-essential g++)
 when 'redhat', 'centos', 'fedora'
-  default['rocketchat']['dependencies'] = %w(GraphicsMagick curl)
+  default['rocketchat']['dependencies'] = %w(git GraphicsMagick curl)
 else
-  default['rocketchat']['dependencies'] = %w(graphicsmagick curl)
+  default['rocketchat']['dependencies'] = %w(git graphicsmagick curl)
 end
 
 # runit service settings
