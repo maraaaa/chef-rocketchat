@@ -40,8 +40,8 @@ node.override['mongodb']['config']['smallfiles'] = true
 node.override['mongodb']['config']['rest'] = true
 node.override['mongodb']['config']['bind_ip'] = 'localhost'
 
-include_recipe 'mongodb::10gen_repo'
-include_recipe 'mongodb::default'
+# include_recipe 'mongodb::10gen_repo'
+include_recipe 'sc-mongodb::default'
 
 bash 'install node' do
   user 'root'
