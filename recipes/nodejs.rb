@@ -4,12 +4,10 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
-nvm_install "node #{node['rocketchat']['node_version']}" do
-  version node['rocketchat']['node_version']
+include_recipe 'nodejs::npm'
+
+nodejs_npm 'rocketchat' do
+  path  "#{node['rocketchat']['install_dir']}/programs/server"
+  json true
   user node['rocketchat']['user']
-  group node['rocketchat']['group']
-  user_home node['rocketchat']['install_dir']
-  from_source false
-  alias_as_default true
-  action :create
 end

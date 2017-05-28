@@ -50,6 +50,7 @@ execute 'Extract Rocket.Chat' do
   command "tar xf #{Chef::Config['file_cache_path']}/#{tar_name} -C rocketchat"
   user node['rocketchat']['user']
   group node['rocketchat']['group']
+  not_if File.exist? "#{node['rocketchat']['install_dir']}/.node_version.txt"
 end
 
 directory node['rocketchat']['install_dir'] do
@@ -62,11 +63,7 @@ end
 
 execute 'mv bundle dir' do
   command "cp -a #{Chef::Config['file_cache_path']}/rocketchat/bundle/* #{node['rocketchat']['install_dir']}"
-end
-
-execute 'npm install' do
-  command 'npm install'
-  cwd "#{node['rocketchat']['install_dir']}/programs/server"
+  not_if File.exist? "#{node['rocketchat']['install_dir']}/.node_version.txt"
 end
 
 template '/srv/rocketchat/.node_version.txt' do
@@ -75,6 +72,6 @@ template '/srv/rocketchat/.node_version.txt' do
   group 'rocketchat'
   mode '0644'
   variables(
-    node_version: node['rocketchat']['node_version']
+    node_version: node['nodejs']['version']
   )
 end

@@ -26,8 +26,8 @@ end
 %w(
   user
   mongodb
-  nodejs
   install
+  nodejs
   service
 ).each do |recipe|
   include_recipe "#{cookbook_name}::#{recipe}"

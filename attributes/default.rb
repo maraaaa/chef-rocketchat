@@ -24,7 +24,9 @@ default['rocketchat']['install_dir'] = '/srv/rocketchat'
 default['rocketchat']['url'] = 'https://rocket.chat/releases/0.53.0/download'
 default['rocketchat']['checksum'] = '095c9476806186cb7ecd94490f43fe1496806b14edc8f4a3739840a895ee18a1'
 
-default['rocketchat']['node_version'] = '7.7.3'
+default['nodejs']['install_method'] = 'binary'
+default['nodejs']['version'] = '7.10.0'
+default['nodejs']['binary']['checksum'] = '6166b9f3fb1a9e861335d864688fee5366f040db808080856a1a2b71b6019786'
 
 case node['platform']
 when 'debian'
