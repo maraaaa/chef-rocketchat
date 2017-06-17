@@ -21,8 +21,8 @@ default['rocketchat']['user'] = 'rocketchat'
 default['rocketchat']['group'] = 'rocketchat'
 default['rocketchat']['install_dir'] = '/srv/rocketchat'
 
-default['rocketchat']['url'] = 'https://rocket.chat/releases/0.53.0/download'
-default['rocketchat']['checksum'] = '095c9476806186cb7ecd94490f43fe1496806b14edc8f4a3739840a895ee18a1'
+default['rocketchat']['url'] = 'https://rocket.chat/releases/0.56.0/download'
+default['rocketchat']['checksum'] = '52b2ed609e7693f473875735db4339078754e35864921719daa9d0ece11aee73'
 
 default['rocketchat']['dependencies'] = %w(graphicsmagick curl)
 
